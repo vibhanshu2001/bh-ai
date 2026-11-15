@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+/**
+ * Bhai Local MCP Context Bridge CLI (`bin/bhai-mcp`)
+ * Standalone stdio executable invoked by external coding agents.
+ */
+
+const { StdioBridge } = require('../dist/mcp/stdio_bridge');
+
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const options = {};
+
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    if (arg === '--project' && i + 1 < args.length) {
+      options.projectId = args[++i];
+    } else if (arg === '--client' && i + 1 < args.length) {
+      options.clientName = args[++i];
+    } else if (arg === '--token' && i + 1 < args.length) {
+      options.token = args[++i];
+    } else if (arg === '--session' && i + 1 < args.length) {
+      options.sessionId = args[++i];
+    }
+  }
+
+  return options;
+}
+
+const options = parseArgs();
+const bridge = new StdioBridge(options);
+bridge.start();

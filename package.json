@@ -1,0 +1,50 @@
+{
+  "name": "bhai",
+  "version": "0.1.0-p1",
+  "private": true,
+  "description": "bh-ai — an offline-first macOS assistant with shared project memory for coding agents, English and Hinglish commands, and local MCP integration.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "main": "dist/main/index.js",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build:ts": "tsc",
+    "build:preload": "esbuild src/preload/index.ts --bundle --platform=node --external:electron --outfile=dist/preload/index.js",
+    "build:renderer": "esbuild src/renderer/index.tsx --bundle --platform=browser --target=chrome132 --outfile=dist/renderer/renderer.bundle.js && mkdir -p dist/renderer && cp src/renderer/index.html dist/renderer/index.html && cp src/renderer/styles.css dist/renderer/styles.css",
+    "build:helper": "mkdir -p .cache/swift dist/native && swiftc -module-cache-path .cache/swift src/native/bhai_helper.swift -O -target arm64-apple-macos14.0 -o dist/native/bhai-helper",
+    "build": "npm run build:ts && npm run build:preload && npm run build:renderer && npm run build:helper",
+    "rebuild:electron": "electron-rebuild",
+    "start": "electron .",
+    "test:p1": "node scripts/run_p1_tests.js",
+    "test:p2": "node scripts/run_p2_tests.js",
+    "test:p3": "node scripts/run_p3_tests.js",
+    "test:p4": "node scripts/run_p4_tests.js",
+    "test": "node scripts/run_p4_tests.js",
+    "p0": "node scripts/p0_runner.js",
+    "website:deploy": "npx vercel deploy website"
+  },
+  "dependencies": {
+    "better-sqlite3": "13.2.0",
+    "compromise": "14.20.0",
+    "fuse.js": "7.5.0",
+    "lucide-react": "^1.73.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "systeminformation": "5.33.22",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@electron/fuses": "2.1.3",
+    "@electron/packager": "20.3.0",
+    "@electron/rebuild": "4.2.1",
+    "@types/better-sqlite3": "7.6.12",
+    "@types/node": "24.11.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "electron": "44.11.3",
+    "esbuild": "0.28.2",
+    "typescript": "5.7.3"
+  }
+}

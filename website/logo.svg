@@ -1,0 +1,15 @@
+<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bhai_squircle_dark" x1="0" y1="0" x2="0" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#242428" />
+      <stop offset="100%" stop-color="#141416" />
+    </linearGradient>
+  </defs>
+  <!-- macOS Squircle Container -->
+  <rect width="44" height="44" rx="12" fill="url(#bhai_squircle_dark)" />
+  <rect x="0.5" y="0.5" width="43" height="43" rx="11.5" stroke="rgba(255, 255, 255, 0.12)" />
+  <!-- Chunky Lowercase 'b' -->
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 13.5C10.5 12.12 11.62 11 13 11C14.38 11 15.5 12.12 15.5 13.5V16.86C16.75 15.99 18.34 15.5 20 15.5C24.42 15.5 28 19.08 28 23.5C28 27.92 24.42 31.5 20 31.5C18.34 31.5 16.75 31.01 15.5 30.14V30.5C15.5 31.33 14.83 32 14 32C13.17 32 12.5 31.33 12.5 30.5V13.5H10.5ZM15.5 23.5C15.5 25.99 17.51 28 20 28C22.49 28 24.5 25.99 24.5 23.5C24.5 21.01 22.49 19 20 19C17.51 19 15.5 21.01 15.5 23.5Z" fill="#FFFFFF" />
+  <!-- Golden-Orange Underscore '_' -->
+  <rect x="26.5" y="27" width="9" height="4.5" rx="2.25" fill="#FF9800" />
+</svg>

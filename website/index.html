@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bh-ai — Shared memory for your coding agents</title>
+  <meta name="description" content="Give your coding agents shared, local project memory. Keep decisions, tasks, and handoffs across sessions with bh-ai, an open-source macOS assistant.">
+  <meta property="og:title" content="bh-ai — Shared memory for your coding agents">
+  <meta property="og:description" content="Keep project decisions, tasks, and handoffs across coding sessions. Open source. Local-first. Built for Mac.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hi-bhai.vercel.app/">
+  <meta property="og:image" content="https://hi-bhai.vercel.app/screenshots/assistant-light.png">
+  <link rel="canonical" href="https://hi-bhai.vercel.app/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="container header">
+    <a class="brand" href="./" aria-label="bh-ai home"><img src="logo.svg" width="34" height="34" alt="">bh-ai</a>
+    <nav aria-label="Main navigation">
+      <a href="#get-started">Get started</a>
+      <a href="https://github.com/vibhanshu2001/bh-ai">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="availability">An open-source Mac app</p>
+        <h1 id="hero-title">Your next session starts with context.</h1>
+        <p class="intro">bh-ai gives your coding agents a shared, local memory. Keep project decisions, tasks, and handoffs in one place, so you spend less time explaining things again.</p>
+        <div class="hero-actions">
+          <a class="button" href="#get-started">Get started</a>
+          <a class="text-link" href="https://github.com/vibhanshu2001/bh-ai/blob/main/README.md">Read the docs</a>
+        </div>
+        <p class="compatibility">macOS 14+ · Apple Silicon · Early-stage</p>
+      </div>
+      <figure class="app-preview">
+        <img src="screenshots/assistant-light.png" width="440" height="540" alt="Bhai’s light-themed chat interface responding to the Hinglish command bhai memory dekh with a RAM usage summary.">
+        <figcaption>Ask Bhai in English or Hinglish. Get answers on your Mac.</figcaption>
+      </figure>
+    </section>
+
+    <section class="benefits" aria-label="What bh-ai does">
+      <div>
+        <h2>Remember the why.</h2>
+        <p>Save conventions and decisions. Review what your agents propose.</p>
+      </div>
+      <div>
+        <h2>Pick up where you left off.</h2>
+        <p>Share context across Cursor, Claude Code, Codex, and Antigravity through local MCP.</p>
+      </div>
+      <div>
+        <h2>Keep it on your Mac.</h2>
+        <p>Project memory works locally. No bh-ai account or API key needed.</p>
+      </div>
+    </section>
+
+    <section id="mcp" class="mcp-section" aria-labelledby="mcp-title">
+      <div class="section-intro">
+        <h2 id="mcp-title">Bhai MCP</h2>
+        <p>The connection between your agents and your project memory. Through Model Context Protocol (MCP), an agent can retrieve context, save progress, and leave a handoff for the next session.</p>
+        <a class="text-link" href="https://github.com/vibhanshu2001/bh-ai/blob/main/README.md#connect-your-agents">Connect your agents</a>
+      </div>
+      <dl class="mcp-tools">
+        <div><dt><code>yebata</code></dt><dd>Get the project’s context.</dd></div>
+        <div><dt><code>yesavekar</code></dt><dd>Save a progress checkpoint.</dd></div>
+        <div><dt><code>handoffsavekar</code></dt><dd>Leave a session handoff.</dd></div>
+      </dl>
+    </section>
+
+    <section id="get-started" class="setup" aria-labelledby="setup-title">
+      <div class="section-intro">
+        <h2 id="setup-title">Run it on your Mac.</h2>
+        <p>bh-ai is currently available as source. You’ll need an Apple Silicon Mac with macOS 14+, Node.js 24, and Xcode Command Line Tools.</p>
+      </div>
+      <div class="setup-grid">
+        <div class="code-block">
+          <div class="code-header"><span>Terminal</span><button id="copy-install" type="button" hidden>Copy commands</button></div>
+          <pre><code id="install-commands">git clone https://github.com/vibhanshu2001/bh-ai.git
+cd bh-ai
+npm ci
+npm run build
+npm run rebuild:electron
+npm start</code></pre>
+          <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+        </div>
+        <ol class="setup-steps">
+          <li><h3>Open Bhai.</h3><p>Find it in your menu bar, or press <kbd>⌘</kbd> <kbd>Shift</kbd> <kbd>Space</kbd>.</p></li>
+          <li><h3>Add your project.</h3><p>Choose <strong>+ Add Project</strong>, select a repository, and review its details.</p></li>
+          <li><h3>Connect your agents.</h3><p>Open the project, choose <strong>Connect</strong>, and reload your agent’s MCP connection. Keep Bhai running while you work.</p></li>
+        </ol>
+      </div>
+      <details class="privacy-note">
+        <summary>How does local memory work?</summary>
+        <p>bh-ai stores project memory in a local SQLite database. Connected agents retrieve what you and your agents record through MCP. Depending on their settings, those agents may send retrieved context to their model providers. <a href="https://github.com/vibhanshu2001/bh-ai/blob/main/SECURITY.md">Read about data and security</a>.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>bh-ai <span>·</span> Open source under MIT.</p>
+    <a href="https://github.com/vibhanshu2001/bh-ai/issues">Feedback &amp; issues</a>
+  </footer>
+</body>
+</html>
